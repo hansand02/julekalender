@@ -1,0 +1,42 @@
+.calendar {
+    --width: min(calc(100vw / 4), 300px);
+    max-width: calc(var(--width)*4); 
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.calendar-date {
+    --height: min(calc(100vh / 6), 300px);
+    width: var(--width);
+    height: var(--height);
+    text-align: center;
+    line-height: var(--height);
+    font-size: 20px;
+    cursor: help;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border: 0 auto;
+    /* Outline */
+    outline-width: 1px;
+    outline-style: dashed;
+    outline-color: wheat;
+    outline-offset: -10px;
+    color: white;
+}
+
+.calendar-date:hover {
+    background-color: rgb(174, 27, 27);
+    transition: background-color 0.7s;
+    
+}
+
+#date-24 {
+    background-color: red;
+    color: white;
+}
+
+#countdown-timer {
+    margin-top: 20px;
+    font-size: 16px;
+}
