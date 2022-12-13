@@ -1,20 +1,28 @@
 .calendar {
-    --width: min(calc(100vw / 4), 300px);
+    --width: min(calc(100vw / 3.1), 200px);
     max-width: calc(var(--width)*4); 
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    justify-content: center;
+}
+
+.header {
+    
+    height: 20vh;
+    line-height: 20vh;
+    vertical-align: middle;
 }
 
 .calendar-date {
-    --height: min(calc(100vh / 6), 300px);
+    --height: min(calc(100vh / 4), 800px);
     width: var(--width);
     height: var(--height);
     text-align: center;
     line-height: var(--height);
     font-size: 20px;
-    cursor: help;
-    margin: 1px;
+    cursor:pointer;
+    margin: 0px;
     background-color: antiquewhite;
     border: 0 auto;
     /* Outline */
@@ -28,7 +36,6 @@
 .calendar-date:hover {
     background-color: rgb(174, 27, 27);
     transition: background-color 0.7s;
-    
 }
 
 #date-24 {
@@ -36,7 +43,12 @@
     color: white;
 }
 
-#countdown-timer {
-    margin-top: 20px;
-    font-size: 16px;
+.countdown-timer-head {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: -webkit-linear-gradient(#FE5F75, #FC9842);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

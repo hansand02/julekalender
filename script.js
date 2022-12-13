@@ -7,16 +7,12 @@ const seconds = document.getElementById("seconds");
 var daysleft;
 
 const christmasColors = [
-    "#009900",
-    "#33cc33",
-    "#66ff66",
     "#006600",
     "#339933",
-    "#66cc66",
     "#003300",
     "#336633",
     "#669966",
-    "#000033"
+    
   ];
 
 
@@ -34,20 +30,36 @@ function setFarge(luke) {
 function setAlleFarge() {
     for(let i = 1; i<24 ; i++) {
         var luke = document.getElementById(i.toString())
-        
+
+        if(localStorage.getItem("lukepresset_"+i)) {
+            luke.style.background = "black"
+            luke.style.outlineColor = "black"
+            continue;
+        }
         /* var days(Math.floor(((new Date((new Date()).getFullYear(), 11, 24, 0, 0, 0)).getTime()- (new Date()).getTime())/(1000 * 60 * 60 * 24))); */
         
-        if (i == 23-(Math.floor(((new Date((new Date()).getFullYear(), 11, 24, 0, 0, 0)).getTime()- (new Date()).getTime())/(1000 * 60 * 60 * 24)))) {
+        if (i < 23-(Math.floor(((new Date((new Date()).getFullYear(), 11, 24, 0, 0, 0)).getTime()- (new Date()).getTime())/(1000 * 60 * 60 * 24)))) {
             luke.style.background = 'red'
             
             luke.addEventListener("click", () =>
-            alert("luke" + i + " har knulla moren din")
+                openHatch(i)
             )
             continue;
         }
         
         setFarge(luke)
     }
+}
+
+function openHatch(id) {
+    if(localStorage.getItem("lukepresset_"+id)) {
+        return;
+    }
+
+    alert("luke " + id + " er nok bare tom")
+    localStorage.setItem("lukepresset_"+id, true);
+    let luke = document.getElementById(id)
+    luke.style.background = "black"
 }
 
 function updateCountdown() {
